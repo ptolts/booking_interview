@@ -1,0 +1,60 @@
+<div class="row">
+	<div class="col-md-4 col-xs-12">
+		<h3>Book an apartment:</h3>
+		<select class="form-control" data-bind="options: apartments, optionsText: 'id', value: selected_apartment, optionsCaption: 'Select Apartment...'"></select>
+		<!-- ko with: selected_apartment -->
+			<!-- ko if: available -->
+				<h3><span class="label label-success">Available</span></h3>
+				<h4>Price $<span data-bind="text: price"></span></h4>
+				<h4>Cleaning Fee: $<span data-bind="text: cleaning_fee"></span></h4>
+				<h4>Currency <span data-bind="text: currency"></span></h4>
+				<p><button class="btn btn-primary" data-bind="click: book">Book!</button></p>
+			<!-- /ko -->
+			<!-- ko ifnot: available -->
+				<h3><span class="label label-danger">Unvailable</span></h3>
+			<!-- /ko -->				
+		<!-- /ko -->	
+	</div>
+	<!-- ko with: selected_apartment -->
+	<div class="col-md-4 col-xs-12">
+		<p>Start Date:</p>
+		<input class="form-control" type="text" class="datepicker" data-bind="datepicker: start_date" >
+	</div>	
+	<div class="col-md-4 col-xs-12">
+		<p>End Date:</p>
+		<input class="form-control" type="text" class="datepicker" data-bind="datepicker: end_date" >
+	</div>
+	<!-- /ko -->	
+</div>
+
+<div class="row">
+	<div class="col-xs-12">
+		<hr>
+		<h3>Bookings</h3>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: bookings">
+				<tr>
+					<th scope="row" data-bind="text: id"></th>
+					<td data-bind="text: start_date"></td>
+					<td data-bind="text: end_date"></td>
+					<td data-bind="text: price"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>	
+</div>
+
+<script>
+	var viewmodel = new IndexModel();
+	$(function(){	
+		ko.applyBindings(viewmodel,$("html")[0]);      			
+	});
+</script>

@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hywf9ckcn
+  api_key: '978982918734729'
+  api_secret: AaJ0Z3rN7qif6dzqsHpt5R9USQo
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hywf9ckcn
+  api_key: '978982918734729'
+  api_secret: AaJ0Z3rN7qif6dzqsHpt5R9USQo
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hywf9ckcn
+  api_key: '978982918734729'
+  api_secret: AaJ0Z3rN7qif6dzqsHpt5R9USQo
+  enhance_image_tag: true
+  static_image_support: false
