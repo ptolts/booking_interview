@@ -35,8 +35,8 @@ class Apartment
       end           
 
       (Date.new(2015, 01, 01)..Date.new(2015, 12, 01)).select{|d| d.day == 1}.each do |month|
-        sun_to_thur = Random.rand(300)
-        fri_to_sat = Random.rand(300)
+        sun_to_thur = 90#Random.rand(300)
+        fri_to_sat = 110#Random.rand(300)
         # There is probably a better way of dealing with these price ranges.
         # I designed the prices to be more versatile, but this will do for now.
         (month..month.next_month.prev_day).each do |day|
