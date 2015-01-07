@@ -82,5 +82,5 @@ function Apartment(data) {
         if(!ko.computedContext.isInitial()){
             self.check_availability();    
         }        
-    }).extend({ notify: 'always', rateLimit: 0 });;       
+    }).extend({ notify: 'always', rateLimit: 0 });      
 }

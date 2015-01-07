@@ -28,6 +28,14 @@ function IndexModel() {
 	self.apartments = ko.observableArray();
 	self.bookings = ko.observableArray();
 	self.selected_apartment = ko.observable();
+
+    self.monitor_selected_apartment = ko.computed(function(){
+        self.selected_apartment();
+        if(!ko.computedContext.isInitial()){
+            self.selected_apartment().check_availability();    
+        }        
+    });	
+
 	// Load apartments
 	$.ajax({
 	    type: "POST",
