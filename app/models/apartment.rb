@@ -41,9 +41,9 @@ class Apartment
         # I designed the prices to be more versatile, but this will do for now.
         (month..month.next_month.prev_day).each do |day|
           if day.sunday? or day.monday? or day.tuesday? or day.wednesday? or day.thursday?
-            price = Price.new(start_date: day.to_time.utc, end_date: day.to_time.utc, price: sun_to_thur)
+            price = Price.new(start_date: day.in_time_zone.to_time.utc, end_date: day.in_time_zone.to_time.utc, price: sun_to_thur)
           else
-            price = Price.new(start_date: day.to_time.utc, end_date: day.to_time.utc, price: fri_to_sat)
+            price = Price.new(start_date: day.in_time_zone.to_time.utc, end_date: day.in_time_zone.to_time.utc, price: fri_to_sat)
           end
           #random_availability 
           if Random.rand(3) == 0

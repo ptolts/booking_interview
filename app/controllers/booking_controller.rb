@@ -1,11 +1,10 @@
 class BookingController < ApplicationController
 	def setup_booking_model params
 		data = JSON.parse(params)
-		Rails.logger.warn data.to_s
 		apartment = Apartment.find(data["id"])
-	    format = "%Y-%m-%dT%H:%M:%S.%L%z";
-	    start_date = Date.strptime(data["start_date"], format).to_time.utc
-	    end_date = Date.strptime(data["end_date"], format).to_time.utc
+	    format = "%Y-%m-%d"
+	    start_date = DateTime.strptime(data["start_date"], format).in_time_zone
+	    end_date = DateTime.strptime(data["end_date"], format).in_time_zone
 	    booking = Booking.new
 	    booking.apartment = apartment
 	    booking.start_date = start_date
